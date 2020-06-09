@@ -22,6 +22,8 @@ public class BookController {
     @RequestMapping("/books")
     public String list(Model model){
         List<Book> books = bookDao.getAll();
+        Integer total = bookDao.getTotal();
+        model.addAttribute("total",total);
         model.addAttribute("books",books);
         return "list";
     }
@@ -54,4 +56,14 @@ public class BookController {
         bookDao.delete(book_id);
         return "redirect:/books";
     }
+
+    @PostMapping("/search")
+    public String secrch(String book_name,Model model){
+        Book books = bookDao.searchBookByName(book_name);
+        Integer nameTotal = bookDao.getNameTotal(book_name);
+        model.addAttribute("books",books);
+        model.addAttribute("total",nameTotal);
+        return "list";
+    }
+
 }

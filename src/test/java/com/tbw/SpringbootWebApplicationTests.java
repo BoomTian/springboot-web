@@ -17,7 +17,11 @@ class SpringbootWebApplicationTests {
     void contextLoads() {
     }
 
-
+    @Test
+    void hh(){
+        Book book = bookDao.searchBookByName("三体");
+        System.out.println(book);
+    }
 
 
 

@@ -24,11 +24,20 @@ public interface BookDao {
     @Insert("insert into book(book_id,book_name,book_author,book_publish,book_price)  values (#{book_id},#{book_name},#{book_author},#{book_publish},#{book_price})")
     public void saveById(Book book);
 
+    @Select("select count(*) from book")
+    Integer getTotal();
+
+    @Select("select count(*) from book where book_name =#{book_name}")
+    Integer getNameTotal(@Param("book_name") String book_name);
+
     @Select("select * from book")
     public List<Book> getAll();
 
     @Select("select * from book where book_id =#{book_id}")
     public Book getBookById(@Param("book_id") Integer book_id);
+
+    @Select("select * from book where book_name =#{book_name}")
+    public Book searchBookByName(@Param("book_name") String book_name);
 
     @Delete("delete from book where book_id = #{book_id}")
     public void delete(@Param("book_id") Integer book_id);

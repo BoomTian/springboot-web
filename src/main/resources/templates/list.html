@@ -49,7 +49,8 @@
 			<div class="row">
 				<div th:replace="~{common::sidebar(activeUrl='list')}"></div>
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-					<h2><a class="btn btn-sm btn-success" th:href="@{/add}">添加图书</a></h2>
+					<h2><a class="btn btn-sm btn-success" th:href="@{/add}">Add Book</a></h2>
+					<input type="button" class="btn btn-sm btn-success" style="width:80px;" th:value="  '  Total  :  '+ ${total}  " >
 					<div class="table-responsive">
 						<table class="table table-striped table-sm">
 							<thead>
@@ -70,8 +71,8 @@
 								<td th:text="${book.getBook_publish()}"></td>
 								<td th:text="${book.getBook_price()}"></td>
 								<td >
-									<a class="btn btn-sm badge-primary" th:href="@{/add/}+${book.book_id}">编辑</a>
-									<a class="btn btn-sm badge-danger" th:href="@{/del/(book_id=${book.book_id})}">删除</a>
+									<a class="btn btn-sm badge-primary" th:href="@{/add/}+${book.book_id}">Update</a>
+									<a class="btn btn-sm badge-danger" th:href="@{/del/(book_id=${book.book_id})}">Delete</a>
 								</td>
 							</tr>
 							</tbody>
