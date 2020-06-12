@@ -35,6 +35,8 @@ public interface BookDao {
 
     @Select("select * from book where book_id =#{book_id}")
     public Book getBookById(@Param("book_id") Integer book_id);
+    @Select("select * from book where book_id =#{book_id}")
+    public Book getBookBy(@Param("book_id") Integer book_id);
 
     @Select("select * from book where book_name =#{book_name}")
     public Book searchBookByName(@Param("book_name") String book_name);

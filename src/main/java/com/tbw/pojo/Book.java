@@ -6,12 +6,6 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author hasee
- * 信息安全 应用现状 发展趋势
- * 信息安全技术是什么
- * 问题？
- * 现状
- * 发展
- *
  */
 @Data
 @AllArgsConstructor
