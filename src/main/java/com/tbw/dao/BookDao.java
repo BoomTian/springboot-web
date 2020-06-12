@@ -21,8 +21,8 @@ public interface BookDao {
     @Insert("insert into book(book_name,book_author,book_publish,book_price)  values (#{book_name},#{book_author},#{book_publish},#{book_price})")
     public void save(Book book);
 
-    @Insert("insert into book(book_id,book_name,book_author,book_publish,book_price)  values (#{book_id},#{book_name},#{book_author},#{book_publish},#{book_price})")
-    public void saveById(Book book);
+    @Update("update  book set book_name = #{book_name},book_author = #{book_author},book_publish = #{book_publish},book_price = #{book_price} where book_id =#{book_id}")
+    public void update(Book book);
 
     @Select("select count(*) from book")
     Integer getTotal();

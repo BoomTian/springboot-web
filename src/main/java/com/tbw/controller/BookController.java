@@ -48,7 +48,7 @@ public class BookController {
 
     @PostMapping("/update")
     public String update(Book book){
-        bookDao.save(book);
+        bookDao.update(book);
         return "redirect:/books";
     }
     @GetMapping("/del")
