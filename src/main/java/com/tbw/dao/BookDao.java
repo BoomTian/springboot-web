@@ -18,8 +18,8 @@ public interface BookDao {
      * @param book book
      *
      */
-    @Insert("insert into book(book_name,book_author,book_publish,book_price)  values (#{book_name},#{book_author},#{book_publish},#{book_price})")
-    public void save(Book book);
+    @Insert("insert into book(book_id,book_name,book_author,book_publish,book_price)  values (#{book_id},#{book_name},#{book_author},#{book_publish},#{book_price})")
+    public boolean save(Book book);
 
     @Update("update  book set book_name = #{book_name},book_author = #{book_author},book_publish = #{book_publish},book_price = #{book_price} where book_id =#{book_id}")
     public void update(Book book);
@@ -35,8 +35,9 @@ public interface BookDao {
 
     @Select("select * from book where book_id =#{book_id}")
     public Book getBookById(@Param("book_id") Integer book_id);
-    @Select("select * from book where book_id =#{book_id}")
-    public Book getBookBy(@Param("book_id") Integer book_id);
+
+    @Select("select book_id from book where book_id =#{book_id}")
+    public boolean getBookId(@Param("book_id") Integer book_id);
 
     @Select("select * from book where book_name =#{book_name}")
     public Book searchBookByName(@Param("book_name") String book_name);

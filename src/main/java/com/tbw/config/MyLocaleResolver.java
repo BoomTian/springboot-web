@@ -16,10 +16,14 @@ public class MyLocaleResolver implements LocaleResolver {
     public Locale resolveLocale(HttpServletRequest httpServletRequest) {
         String l = httpServletRequest.getParameter("l");
         Locale locale = Locale.getDefault();
+
         if (!StringUtils.isEmpty(l)) {
             String[] s = l.split("_");
             locale = new Locale(s[0],s[1]);
         }
+
+       // 这个locale就负责国际化的zh_CN  en_US
+        //吧前端l的值取出来设置进locale就好了
         return locale;
     }
 

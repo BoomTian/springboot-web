@@ -51,6 +51,11 @@
 				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 					<form th:action="@{/add}" method="post">
 						<div class="form-group">
+							<label >Book id</label>
+							<input type="text"  name="book_id" class="form-control"  placeholder="Book id">
+							<p style="color: red" th:text="${gg}" th:if="${!#strings.isEmpty(gg)}"></p>
+						</div>
+						<div class="form-group">
 							<label >Book name</label>
 							<input type="text"  name="book_name" class="form-control"  placeholder="Book name">
 						</div>
@@ -68,7 +73,6 @@
 								<input type="text"  class="form-control" name="book_price" placeholder="Price">
 							</div>
 						</div>
-
 						<button type="submit" class="btn btn-primary" >submit</button>
 
 					</form>
@@ -79,18 +83,18 @@
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
-		<script type="text/javascript" src="asserts/js/popper.min.js"></script>
-		<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
+		<script type="text/javascript" th:src="@{/js/jquery-3.2.1.slim.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
 
 		<!-- Icons -->
-		<script type="text/javascript" src="asserts/js/feather.min.js"></script>
+		<script type="text/javascript" th:src="@{/js/feather.min.js}"></script>
 		<script>
 			feather.replace()
 		</script>
 
 		<!-- Graphs -->
-		<script type="text/javascript" src="asserts/js/Chart.min.js"></script>
+		<script type="text/javascript" th:src="@{/js/Chart.min.js}"></script>
 		<script>
 			var ctx = document.getElementById("myChart");
 			var myChart = new Chart(ctx, {

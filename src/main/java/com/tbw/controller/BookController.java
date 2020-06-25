@@ -29,13 +29,20 @@ public class BookController {
     }
 
     @GetMapping("/add")
+
     public String toAdd(){
         return "add";
     }
 
     @PostMapping("/add")
-    public String addBook(Book book){
-        bookDao.save(book);
+    public String addBook(Book book,Model model){
+        boolean b = bookDao.getBookId(book.getBook_id());
+        System.out.println(b);
+        if (b=true){
+            model.addAttribute("gg","您输入的id号已存在请修改");
+            return "/add";
+        }
+         bookDao.save(book);
         return "redirect:/books";
     }
 
